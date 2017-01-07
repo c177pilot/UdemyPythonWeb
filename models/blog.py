@@ -21,10 +21,10 @@ class Blog(object):
                     author=self.author,
                     date=datetime.utcnow() if date is '' else datetime.strptime(date,"%d%m%Y")
                     )
-        post.save_to_mongo()
+        post.save_to_mongo() #create a post with the blog_id referencing back to the blogs collection via the blog_id
 
-    def get_posts(self):
-        return Post.find_blog_id(self.blog_id)
+    def get_posts(self): #return list of posts that are associated with this blog_id
+        return Post.find_blog_ids(self.blog_id) #this will return a list of posts
 
     def save_to_mongo(self):
         data = self.__json()

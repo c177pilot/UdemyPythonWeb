@@ -55,4 +55,4 @@ class Post(object):
     @staticmethod
     def find_blog_ids(blog_id):
         cursor = Database.find(collection='posts', query={"blog_id" : blog_id})
-        return [ post for post in cursor] #return a list of posts
+        return [ post for post in cursor] #return a list of posts with this blod_id
