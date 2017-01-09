@@ -22,7 +22,9 @@ class Database(object):
 
     @staticmethod
     def find(collection, query):
-        return Database.DATABASE[collection].find(query)
+        cursor = Database.DATABASE[collection].find(query).limit(2)
+        #adding the limit(2) here allowed the find() method to return dictionaries and not cursors.
+        return cursor
 
     @staticmethod
     def find_one(collection, query):
